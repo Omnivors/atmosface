@@ -67,7 +67,7 @@ void loop()
 void readCapSense() //Interrupt service routine
 {
   //----------Read buttons' data from I2C bus------
-  readFromI2C(SLAVE_ADDR, BUTTON_STATUS_ADDR, b);
+  readTwoBytesFromI2C(SLAVE_ADDR, BUTTON_STATUS_ADDR, b);
   
   //print the byte obtained from the 0xaa register
   //if(av!=0){printByte(b);}
@@ -81,10 +81,10 @@ void readCapSense() //Interrupt service routine
   //The values range from 0-65535  for proximity sensors.
   
   //---READ PROXIMITY DIFFERENCE COUNT FOR BUTTON 0---
-  readFromI2C(SLAVE_ADDR, DIFF_COUNT_S0_ADDR, p1);
+  readTwoBytesFromI2C(SLAVE_ADDR, DIFF_COUNT_S0_ADDR, p1);
 
   //---READ PROXIMITY DIFFERENCE COUNT FOR BUTTON 1---
-  readFromI2C(SLAVE_ADDR, DIFF_COUNT_S1_ADDR, p2);
+  readTwoBytesFromI2C(SLAVE_ADDR, DIFF_COUNT_S1_ADDR, p2);
   
   p1c=bitShiftCombine(p1[1],p1[0]);
   p2c=bitShiftCombine(p2[1],p2[0]);

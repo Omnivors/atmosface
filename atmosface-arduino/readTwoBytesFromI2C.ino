@@ -1,4 +1,4 @@
-void readFromI2C(int deviceAddress, int functionAddress, char dataIn[2]) 
+void readTwoBytesFromI2C(int deviceAddress, int functionAddress, char dataIn[2]) 
 {
   // Read information from the I2C bus
   
@@ -15,5 +15,4 @@ void readFromI2C(int deviceAddress, int functionAddress, char dataIn[2])
     i++;
   }
   Wire.endTransmission(); // Stop receiving
-
 }
