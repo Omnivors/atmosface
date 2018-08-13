@@ -4,7 +4,7 @@
 #define REGMAP_ORIGIN 0x00
 #define SLAVE_ADDR 0x37
 #define DIFF_COUNT_S0_ADDR 0xBA
-#define DIFF_COUNT_S1 0xBC
+#define DIFF_COUNT_S1_ADDR 0xBC
 
 // I2C communication protocol
 #include <Wire.h>
@@ -13,8 +13,11 @@ const int BlueLedPin=2;
 
 //Capacitive sensing
 char b[2]={'0','0'}; //button status bytes
-unsigned char p[2]={'0','0'}; //proximity status bytes
-unsigned int p0 = 0; //difference count for sensor 0 (proximity sensor)
+unsigned char p1[2]={'0','0'}; //proximity status bytes - proximity sensor 1
+unsigned char p2[2]={'0','0'}; //proximity status bytes - proximity sensor 2
+
+unsigned int p1c = 0; //difference count for proximity sensor 1
+unsigned int p2c = 0; //difference count for proximity sensor 2
 
 //Capacitive buttons
 boolean buttons[8]={false};
@@ -51,9 +54,9 @@ void loop()
     Serial.println(" ");
    }
    Serial.println(" ");
-   Serial.println(p0);*/
-   Serial.print("proximity: ");
-   Serial.println(p0);
+   Serial.println(p1c);*/
+   Serial.print("proximity 1: ");
+   Serial.println(p1c);
 }
 
 //*****************************************************************************
@@ -70,14 +73,25 @@ void readCapSense() //Interrupt service routine
   //if(av!=0){printByte(b);}
 
   //----------- check buttons  --------------------
+  //The values range from 0-255 for button sensors.
+  
   checkButtons(b, buttons);
 
-  //---READ PROXIMITY DIFFERENCE COUNT FOR BUTTON 0---
-  readFromI2C(SLAVE_ADDR, DIFF_COUNT_S0_ADDR, p);
+  //----------- check proximity sensors  --------------------
+  //The values range from 0-65535  for proximity sensors.
   
-  p0=bitShiftCombine(p[1],p[0]);
-  if(p0>10000){p0=10000;} //clip
-  p0=map(p0,0,10000,8192,16383); //remap
-  if(p0<9500){p0=8192;} //avoid pitch oscillations due to other gestures
+  //---READ PROXIMITY DIFFERENCE COUNT FOR BUTTON 0---
+  readFromI2C(SLAVE_ADDR, DIFF_COUNT_S0_ADDR, p1);
+
+  //---READ PROXIMITY DIFFERENCE COUNT FOR BUTTON 1---
+  readFromI2C(SLAVE_ADDR, DIFF_COUNT_S1_ADDR, p2);
+  
+  p1c=bitShiftCombine(p1[1],p1[0]);
+  p2c=bitShiftCombine(p2[1],p2[0]);
+
+  // Clipping and remapping for proximity sensor 1
+  if(p1c>10000){p1c=10000;} //clip
+  p1c=map(p1c,0,10000,8192,16383); //remap
+  if(p1c<9500){p1c=8192;} //avoid pitch oscillations due to other gestures
   delay(10);
 }
