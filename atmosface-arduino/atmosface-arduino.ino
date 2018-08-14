@@ -12,7 +12,7 @@
 const int BlueLedPin=2;
 
 //Capacitive sensing
-char b[2]={'0','0'}; //button status bytes
+unsigned char b[2]={'0','0'}; //button status bytes
 unsigned char p1[2]={'0','0'}; //proximity status bytes - proximity sensor 1
 unsigned char p2[2]={'0','0'}; //proximity status bytes - proximity sensor 2
 
@@ -20,7 +20,7 @@ unsigned int p1c = 0; //difference count for proximity sensor 1
 unsigned int p2c = 0; //difference count for proximity sensor 2
 
 //Capacitive buttons
-boolean buttons[8]={false};
+bool buttons[8]={false};
 
 //*************** SETUP ********************************************************
 void setup() {

@@ -1,4 +1,4 @@
-bool checkButtons(char bb[2], bool buttons[8]) {
+bool checkButtons(unsigned char bb[2], bool buttons[8]) {
  //button CS5 - PIN 9 - FIRST BYTE SIXTH BIT
 
   if((bb[0] & 0x20) != 0)

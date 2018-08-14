@@ -1,4 +1,4 @@
-void readTwoBytesFromI2C(int deviceAddress, int functionAddress, char dataIn[2]) 
+void readTwoBytesFromI2C(int deviceAddress, int functionAddress, unsigned char dataIn[2]) 
 {
   // Read information from the I2C bus
   
