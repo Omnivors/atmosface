@@ -55,8 +55,10 @@ void loop()
    }
    Serial.println(" ");
    Serial.println(p1c);*/
-   Serial.print("proximity 1: ");
-   Serial.println(p1c);
+   //Serial.print("proximity 1: ");
+   //Serial.println(p1c);
+   Serial.print("proximity 2: ");
+   Serial.println(p2c);
 }
 
 //*****************************************************************************
