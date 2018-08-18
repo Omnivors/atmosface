@@ -20,7 +20,7 @@ unsigned int p1c = 0; //difference count for proximity sensor 1
 unsigned int p2c = 0; //difference count for proximity sensor 2
 
 //Capacitive buttons
-bool buttons[8]={false};
+bool buttons[10]={false};
 
 //*************** SETUP ********************************************************
 void setup() {
@@ -48,17 +48,17 @@ void setup() {
 void loop()
 {
   readCapSense();
-  /*for (int i = 0; i<8; i++)
+  for (int i = 0; i<10; i++)
   {
     Serial.print(buttons[i]);
-    Serial.println(" ");
    }
    Serial.println(" ");
-   Serial.println(p1c);*/
-   //Serial.print("proximity 1: ");
-   //Serial.println(p1c);
+   /*
+   Serial.print("proximity 1: ");
+   Serial.println(p1c);
    Serial.print("proximity 2: ");
    Serial.println(p2c);
+   */
 }
 
 //*****************************************************************************

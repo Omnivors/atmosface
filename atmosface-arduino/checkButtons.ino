@@ -1,6 +1,25 @@
-bool checkButtons(unsigned char bb[2], bool buttons[8]) {
- //button CS5 - PIN 9 - FIRST BYTE SIXTH BIT
-
+bool checkButtons(unsigned char bb[2], bool buttons[10]) {
+  /**********************************
+  /**** BUTTONS WITH PROXIMITY ******
+  /***********************************/
+  //button PS0 - PIN 3 - FIRST BYTE FIRST BIT
+  if((bb[0] & 0x01) != 0)
+  {
+    buttons[9]=true;
+  }
+  else {buttons[9]=false;}
+  //-----------------------------------------------
+  //button PS1 - PIN 4 - FIRST BYTE SECOND BIT
+  if((bb[0] & 0x02) != 0)
+  {
+    buttons[8]=true;
+  }
+  else {buttons[8]=false;}
+  //-----------------------------------------------
+  /**********************************
+  /**** BUTTONS WITHOUT PROXIMITY ******
+  /***********************************/
+  //button CS5 - PIN 9 - FIRST BYTE SIXTH BIT
   if((bb[0] & 0x20) != 0)
   {
     //FIRST BUTTON
