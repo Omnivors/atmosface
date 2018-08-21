@@ -9,7 +9,7 @@
 // I2C communication protocol
 #include <Wire.h>
 
-const int BlueLedPin=2;
+const int BlueLedPin = 2;
 
 //Capacitive sensing
 unsigned char b[2]={'0','0'}; //button status bytes
@@ -20,7 +20,8 @@ unsigned int p1c = 0; //difference count for proximity sensor 1
 unsigned int p2c = 0; //difference count for proximity sensor 2
 
 //Capacitive buttons
-bool buttons[10]={false};
+const int BUTTONS_NUMBER = 10;
+bool buttons[BUTTONS_NUMBER]={false};
 
 //*************** SETUP ********************************************************
 void setup() {
@@ -48,7 +49,7 @@ void setup() {
 void loop()
 {
   readCapSense();
-  for (int i = 0; i<10; i++)
+  for (int i = 0; i<BUTTONS_NUMBER; i++)
   {
     Serial.print(buttons[i]);
    }
@@ -91,9 +92,12 @@ void readCapSense() //Interrupt service routine
   p1c=bitShiftCombine(p1[1],p1[0]);
   p2c=bitShiftCombine(p2[1],p2[0]);
 
+  
   // Clipping and remapping for proximity sensor 1
+  /*
   if(p1c>10000){p1c=10000;} //clip
   p1c=map(p1c,0,10000,8192,16383); //remap
   if(p1c<9500){p1c=8192;} //avoid pitch oscillations due to other gestures
+  */
   delay(10);
 }

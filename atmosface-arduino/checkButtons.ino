@@ -1,4 +1,4 @@
-bool checkButtons(unsigned char bb[2], bool buttons[10]) {
+bool checkButtons(unsigned char bb[2], bool buttons[BUTTONS_NUMBER]) {
   /**********************************
   /**** BUTTONS WITH PROXIMITY ******
   /***********************************/
