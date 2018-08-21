@@ -56,3 +56,16 @@ unsigned int bitShiftCombine(unsigned char x_high, unsigned char x_low)
   combined |= x_low;           //logical OR keeps x_high intact in combined and fills in rightmost 8 bits
   return combined;
 }
+
+// ************************************************************************
+unsigned int bitArrayToInt16(bool arr[], unsigned int count)
+{
+    unsigned int ret = 0;
+    unsigned int tmp;
+    for (int i = 0; i < count; i++) {
+        tmp = arr[i];
+        ret |= tmp << (count - i - 1);
+    }
+    return ret;
+}
+
