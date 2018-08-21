@@ -22,4 +22,4 @@ Buttons array order
 
 PS0 | PS1 | CS5 | CS6 | CS7 | CS8 | CS2 | CS9 | CS3 | CS4
 --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
-b9 | b8 | b7 | b6 | b5 | b4 | b3 | b2 | b1 | b0
+b9  | b8  | b7  | b6  | b5  | b4  | b3  | b2  | b1  | b0
