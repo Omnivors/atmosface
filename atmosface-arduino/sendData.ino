@@ -32,8 +32,10 @@ void encodeProximity (int sensor, unsigned int data) {
 
 void encodeButtons () {
   unsigned int btn = bitArrayToInt16(buttons, BUTTONS_NUMBER);
-  uint8_t low = (btn & 63) | 64;
-  uint8_t high = (btn >> 6) | 15;
-  Serial.write(high);
-  Serial.write(low);
+  uint8_t third = (btn & 63) | 128;
+  uint8_t second = ((btn >> 6) & 15) | 64;
+  uint8_t first = 0;
+  Serial.write(first);
+  Serial.write(second);
+  Serial.write(third);
 }
