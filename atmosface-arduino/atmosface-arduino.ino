@@ -21,8 +21,8 @@ unsigned int p2c = 0; //difference count for proximity sensor 2
 
 //Capacitive buttons
 const int BUTTONS_NUMBER = 10;
-bool buttons[BUTTONS_NUMBER]={false};
-
+//bool buttons[BUTTONS_NUMBER] = {false};
+bool buttons[BUTTONS_NUMBER] = {0,0,0,0,0,1,1,1,1,1};
 //*************** SETUP ********************************************************
 void setup() {
   
@@ -48,7 +48,14 @@ void setup() {
 //*************** LOOP ********************************************************
 void loop()
 {
-  readCapSense();
+  // readCapSense();
+  // TEMP: test with dumb data
+  p1c = 65000;
+  p2c = 3233; 
+  sendData(0);
+  sendData(1);
+  sendData(2);
+  /*readCapSense();
   for (int i = 0; i<BUTTONS_NUMBER; i++)
   {
     Serial.print(buttons[i]);
