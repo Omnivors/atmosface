@@ -48,10 +48,10 @@ void setup() {
 //*************** LOOP ********************************************************
 void loop()
 {
-  // readCapSense();
+  readCapSense();
   // TEMP: test with dumb data
-  p1c = 65000;
-  p2c = 3233; 
+  //p1c = 65000;
+  //p2c = 3233; 
   sendData(0);
   sendData(1);
   sendData(2);

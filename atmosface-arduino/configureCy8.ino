@@ -51,7 +51,7 @@ Wire.write(REGMAP_ORIGIN);          // sends Offset byte
 Wire.write(00);
 Wire.endTransmission();    // stop transmitting
 
-Serial.print("CAPSENSE SETUP IN CORSO\n");
+//Serial.print("CAPSENSE SETUP IN CORSO\n");
 
 Wire.beginTransmission(SLAVE_ADDR); // transmit to device #0x37
 Wire.write(REGMAP_ORIGIN);          // sends Offset byte
