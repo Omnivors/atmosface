@@ -1,4 +1,4 @@
-#N canvas 441 229 1226 794 10;
+#N canvas 214 84 1226 794 10;
 #X obj 351 188 t f f f f;
 #X obj 542 238 & 192;
 #X obj 542 269 >> 6;
@@ -66,12 +66,12 @@
 #X msg 279 119 devices;
 #X msg 417 119 close;
 #X obj 351 143 comport 0 9600;
-#X msg 351 119 open 3;
 #X obj 326 483 & 63;
 #X obj 352 31 loadbang;
 #X obj 352 53 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 352 73 delay 5000;
+#X msg 351 119 open 5;
 #X connect 0 0 14 0;
 #X connect 0 1 11 0;
 #X connect 0 2 13 0;
@@ -92,7 +92,7 @@
 #X connect 11 0 62 0;
 #X connect 12 0 47 0;
 #X connect 13 0 23 0;
-#X connect 14 0 68 0;
+#X connect 14 0 67 0;
 #X connect 15 0 46 0;
 #X connect 16 0 34 0;
 #X connect 16 0 27 0;
@@ -137,8 +137,8 @@
 #X connect 64 0 66 0;
 #X connect 65 0 66 0;
 #X connect 66 0 0 0;
-#X connect 67 0 66 0;
-#X connect 68 0 25 0;
+#X connect 67 0 25 0;
+#X connect 68 0 69 0;
 #X connect 69 0 70 0;
 #X connect 70 0 71 0;
-#X connect 71 0 67 0;
+#X connect 71 0 66 0;
