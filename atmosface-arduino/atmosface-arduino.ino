@@ -1,4 +1,4 @@
-/* CY8CMBR3110 Register Map Offset Address */
+ /* CY8CMBR3110 Register Map Offset Address */
 #define BUTTON_STATUS_ADDR 0xaa
 #define CTRL_CMD 0x86
 #define REGMAP_ORIGIN 0x00
@@ -48,25 +48,27 @@ void setup() {
 //*************** LOOP ********************************************************
 void loop()
 {
-  readCapSense();
+  //readCapSense();
+   Serial.print("proximity 1: ");
+   Serial.println(p1c);
   // TEMP: test with dumb data
   //p1c = 65000;
   //p2c = 3233; 
-  sendData(0);
-  sendData(1);
-  sendData(2);
+  //sendData(0);
+  //sendData(1);
+  //sendData(2);  
   /*readCapSense();
   for (int i = 0; i<BUTTONS_NUMBER; i++)
   {
     Serial.print(buttons[i]);
    }
    Serial.println(" ");
-   /*
+   
    Serial.print("proximity 1: ");
    Serial.println(p1c);
    Serial.print("proximity 2: ");
    Serial.println(p2c);
-   */
+   */ 
 }
 
 //*****************************************************************************
