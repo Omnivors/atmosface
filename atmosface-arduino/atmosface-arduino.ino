@@ -48,27 +48,10 @@ void setup() {
 //*************** LOOP ********************************************************
 void loop()
 {
-  //readCapSense();
-   Serial.print("proximity 1: ");
-   Serial.println(p1c);
-  // TEMP: test with dumb data
-  //p1c = 65000;
-  //p2c = 3233; 
-  //sendData(0);
-  //sendData(1);
-  //sendData(2);  
-  /*readCapSense();
-  for (int i = 0; i<BUTTONS_NUMBER; i++)
-  {
-    Serial.print(buttons[i]);
-   }
-   Serial.println(" ");
-   
-   Serial.print("proximity 1: ");
-   Serial.println(p1c);
-   Serial.print("proximity 2: ");
-   Serial.println(p2c);
-   */ 
+  readCapSense();
+  sendData(0);
+  sendData(1);
+  sendData(2);
 }
 
 //*****************************************************************************
