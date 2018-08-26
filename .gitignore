@@ -32,3 +32,6 @@ atmosface-pd
 *.exe
 *.out
 *.app
+
+# Pd patches
+atmosface-pd
