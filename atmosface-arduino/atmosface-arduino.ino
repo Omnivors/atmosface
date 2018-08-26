@@ -5,6 +5,9 @@
 #define SLAVE_ADDR 0x37
 #define DIFF_COUNT_S0_ADDR 0xBA
 #define DIFF_COUNT_S1_ADDR 0xBC
+#define TOTAL_WORKING_SNS 0x97
+#define DEVICE_CFG1 0x4e
+#define SNS_CP_HIGH 0x98
 
 // I2C communication protocol
 #include <Wire.h>
@@ -23,6 +26,9 @@ unsigned int p2c = 0; //difference count for proximity sensor 2
 const int BUTTONS_NUMBER = 10;
 //bool buttons[BUTTONS_NUMBER] = {false};
 bool buttons[BUTTONS_NUMBER] = {0,0,0,0,0,1,1,1,1,1};
+
+bool systemError = false;
+bool systemDiagEn = false;
 //*************** SETUP ********************************************************
 void setup() {
   
@@ -49,6 +55,15 @@ void setup() {
 void loop()
 {
   readCapSense();
+  
+  /*systemDiagEn = readSysDiagnosticEnable(SLAVE_ADDR);
+  Serial.print("SYSD_EN ");
+  Serial.println(systemDiagEn);*/
+  
+  /*systemError = readSysErr(SLAVE_ADDR);
+  Serial.print("SYSD_ERR ");
+  Serial.println(systemError);*/
+  
   sendData(0);
   sendData(1);
   sendData(2);
