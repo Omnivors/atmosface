@@ -32,4 +32,4 @@
 *.app
 
 # Pd patches
-atmosface-pd/decoder.pd
+decoder.pd
