@@ -1,4 +1,4 @@
-# Atmosface - interactive artwork
+# Atmosface - an interactive sound installation
 ### *Concept and design by Omnivores Collective*
 ##### *3D model and design - Quique Valido*
 ##### *Sound design - Luca Morino*
